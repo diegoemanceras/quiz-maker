@@ -24,7 +24,7 @@ export class QuizComponent {
    * 
    * @param {CreateTrivia} event Object containing the category and difficulty selected by the user.
    */
-  onCreateHandler(event: CreateTrivia): void {
+  public onCreateHandler(event: CreateTrivia): void {
     this.questionsList = [];
 
     this.questionsService
@@ -41,7 +41,7 @@ export class QuizComponent {
    * 
    * @param {string[]} selectedAnswers List of user-selected answers
    */
-  onSubmitQuizHandler(selectedAnswers: string[]) {
+  public onSubmitQuizHandler(selectedAnswers: string[]) {
     this.resultsService.setQuiz(Array.from(this.questionsList));
     this.resultsService.setUserAnswers(Array.from(selectedAnswers));
     this.router.navigate(['results']);

@@ -22,7 +22,7 @@ export class ResultComponent implements OnInit {
    * Retrieves quiz questions and answers from the service user. 
    * If they do not exist, it redirects you to the quiz home page.
    */
-  initResults(): void {
+  private initResults(): void {
     this.quiz = this.resultsService.getQuiz();
     this.userAnswers = this.resultsService.getUserAnswers();
 

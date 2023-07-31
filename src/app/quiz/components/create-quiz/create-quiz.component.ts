@@ -5,13 +5,13 @@ import { CreateTrivia } from 'src/app/shared/models/create-trivia';
 
 @Component({
   selector: 'app-create-quiz',
-  templateUrl: './create-quiz.component.html'
+  templateUrl: './create-quiz.component.html',
 })
 export class CreateQuizComponent implements OnInit {
-
   @Output() create: EventEmitter<CreateTrivia> = new EventEmitter();
 
   public refCategories: Category[] = [];
+  public refDifficulties: string[] = ["easy", "medium", "hard"];
 
   constructor(private categoriesService: CategoriesService) {}
 
@@ -20,15 +20,15 @@ export class CreateQuizComponent implements OnInit {
   }
 
   /**
-   * Action when clicking the "Create" button. 
-   * Emit the user's selection to the parent component 
+   * Action when clicking the "Create" button.
+   * Emit the user's selection to the parent component
    * that is responsible for managing the Quiz.
-   * 
+   *
    * @param {number} category User selected category
    * @param {string} difficulty User selected difficulty
    */
-  createClick(category: string, difficulty: string) {
-    this.create.emit({category: category, difficulty: difficulty});
+  public createClick(category: string, difficulty: string) {
+    this.create.emit({ category: category, difficulty: difficulty });
   }
 
   /**
@@ -37,9 +37,8 @@ export class CreateQuizComponent implements OnInit {
    * @private
    */
   private initCategories(): void {
-    this.categoriesService.getCategories().subscribe(res => {
+    this.categoriesService.getCategories().subscribe((res) => {
       this.refCategories = res;
-    })
+    });
   }
-
 }

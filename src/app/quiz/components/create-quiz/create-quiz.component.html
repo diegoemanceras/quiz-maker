@@ -6,9 +6,7 @@
         </select>
         <select #difficultySelect id="difficultySelect" class="form-select" aria-label="Difficulty select">
             <option value="none">Select difficulty</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
+            <option *ngFor="let difficult of refDifficulties" [value]=difficult>{{difficult | titlecase}}</option>
         </select>
         <button id="createBtn" class="btn btn-outline-secondary" type="button" (click)="createClick(categorySelect.value, difficultySelect.value)">Create</button>
     </div>
