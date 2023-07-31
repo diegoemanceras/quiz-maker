@@ -8,8 +8,8 @@ import { ResultsService } from 'src/app/shared/services/results.service';
 })
 export class ScoreComponent implements OnInit {
 
-  public score: number = 0;
-  public total: number = 0;
+  public score = 0;
+  public total = 0;
 
   constructor(private resultsService: ResultsService, private router: Router) {
 
@@ -36,7 +36,7 @@ export class ScoreComponent implements OnInit {
    */
   private calculateScore(): number {
     let score = 0;
-    let userAnswers = this.resultsService.getUserAnswers();
+    const userAnswers = this.resultsService.getUserAnswers();
     this.resultsService.getQuiz().forEach((question, index) => {
       if(question.correct_answer === userAnswers[index]) {
         score++;

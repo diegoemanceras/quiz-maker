@@ -13,7 +13,7 @@ export class QuestionsService {
   constructor(private httpClient: HttpClient) {}
 
   getQuestions(
-    categoryId: number,
+    categoryId: string,
     difficulty: string
   ): Observable<OpenTriviaQuestion[]> {
     return this.httpClient

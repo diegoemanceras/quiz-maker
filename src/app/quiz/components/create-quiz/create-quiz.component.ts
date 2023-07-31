@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CategoriesService } from '../../../shared/services/categories.service';
 import { Category } from '../../../shared/models/category';
+import { CreateTrivia } from 'src/app/shared/models/create-trivia';
 
 @Component({
   selector: 'app-create-quiz',
@@ -8,7 +9,7 @@ import { Category } from '../../../shared/models/category';
 })
 export class CreateQuizComponent implements OnInit {
 
-  @Output() onCreate: EventEmitter<any> = new EventEmitter();
+  @Output() create: EventEmitter<CreateTrivia> = new EventEmitter();
 
   public refCategories: Category[] = [];
 
@@ -23,11 +24,11 @@ export class CreateQuizComponent implements OnInit {
    * Emit the user's selection to the parent component 
    * that is responsible for managing the Quiz.
    * 
-   * @param {string} category User selected category
+   * @param {number} category User selected category
    * @param {string} difficulty User selected difficulty
    */
-  onCreateClick(category: string, difficulty: string) {
-    this.onCreate.emit({category: category, difficulty: difficulty});
+  createClick(category: string, difficulty: string) {
+    this.create.emit({category: category, difficulty: difficulty});
   }
 
   /**

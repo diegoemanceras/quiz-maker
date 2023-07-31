@@ -5,11 +5,9 @@ import { Directive, ElementRef, Input } from '@angular/core';
 })
 export class ColoredScoreDirective {
 
-  @Input() appColoredScore: number = 0;
+  @Input() appColoredScore = 0;
 
-  constructor(private el: ElementRef) {}
-
-  ngOnInit() {
+  constructor(private el: ElementRef) {
     if(this.appColoredScore >= 4 ) {
       this.el.nativeElement.style.backgroundColor = 'green';
     } else if( this.appColoredScore >=2 && this.appColoredScore < 4) {
@@ -17,6 +15,5 @@ export class ColoredScoreDirective {
     } else {
       this.el.nativeElement.style.backgroundColor = 'red';
     }
- }
-
+  }
 }

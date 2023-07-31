@@ -8,11 +8,11 @@ import { ResultsService } from '../../services/results.service';
   styleUrls: ['./questions.component.scss'],
 })
 export class QuestionsComponent implements OnInit {
-  @Input() mode: string = '';
+  @Input() mode = '';
   @Input() questions: OpenTriviaQuestion[] = [];
-  @Output() onSubmitQuiz: EventEmitter<string[]> = new EventEmitter();
+  @Output() submitQuiz: EventEmitter<string[]> = new EventEmitter();
 
-  public areAllAnswered: boolean = false;
+  public areAllAnswered = false;
   public selectedAnswers: string[] = [];
 
   constructor(private resultsService: ResultsService) {}
@@ -50,7 +50,7 @@ export class QuestionsComponent implements OnInit {
    * parent component in charge of managing the quiz.
    */
   onClickSubmitQuiz(): void {
-    this.onSubmitQuiz.emit(this.selectedAnswers);
+    this.submitQuiz.emit(this.selectedAnswers);
   }
 
   /**

@@ -1,4 +1,4 @@
 export interface CreateTrivia {
-    category: number;
+    category: string;
     difficulty: string;
 }

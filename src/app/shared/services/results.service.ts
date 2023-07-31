@@ -9,8 +9,6 @@ export class ResultsService {
   private quiz: OpenTriviaQuestion[] = [];
   private userAnswers: string[] = [];
 
-  constructor() { }
-
   public setQuiz(questions: OpenTriviaQuestion[]): void {
     this.quiz = questions;
   }
