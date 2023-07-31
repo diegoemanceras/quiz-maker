@@ -1,0 +1,14 @@
+<div class="container p-4">
+    <div *ngFor="let question of questions; let i = index">
+        <p [innerHTML]="question.question"></p>
+        <div class="mb-4">
+            <button id="q{{i}}a{{j}}Btn" *ngFor="let answer of question.all_answers; let j = index" class="btn btn-outline-success mx-2"
+                [ngClass]="setAnswerClasses(i, j)"
+                [innerHTML]="answer" (click)="onClickAnswer(i, answer)" [disabled]="mode==='result'"></button>
+        </div>
+    </div>
+    <div *ngIf="mode === 'quiz'" class="text-center">
+        <button id="submitQuizBtn" class="btn btn-secondary m-3" [disabled]="!areAllAnswered"
+        (click)="onClickSubmitQuiz()">Submit Quiz</button>
+    </div>
+</div>
